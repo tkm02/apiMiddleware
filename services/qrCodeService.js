@@ -5,7 +5,7 @@ const path = require('path');
 
 async function generateQRCode(id, options) {
     try {
-        const profileUrl = `https://userprofile-r0vi.onrender.com?id=${id}`;
+        const profileUrl = `https://middlewareprofile.onrender.com?id=${id}`;
       const canvas = createCanvas(500, 500);
       await QRCode.toCanvas(canvas, profileUrl, {
         width: 500,
