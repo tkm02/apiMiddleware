@@ -5,16 +5,16 @@ const { generateQRCode } = require('./qrCodeService');
 async function createUser(request, reply) {
   try {
     const data = request;
-    console.log(data);
+    //console.log(data);
     
     if (!data) {
       return ({ error: 'Invalid data' });
     }
 
     const user = new User(data);
-    const profileUrl = `https://middlewareprofile.onrender.com?id=${user._id}`;
+    //const profileUrl = `https://middlewareprofile.onrender.com?id=${user._id}`;
     const options = data.options || {}; // Récupération des options depuis la requête
-    const qrCode = await generateQRCode(profileUrl, options);
+    const qrCode = await generateQRCode(user._id, options);
     user.qrCodeUrl = qrCode;
 
     await user.save();
@@ -56,8 +56,8 @@ async function updateUser(request, reply) {
     const data = request.body;
 
     if (data.qrCodeUrl) {
-      const profileUrl = `https://middlewareprofile.onrender.com?id=${id}`;
-      const qrCodePath = await generateQRCode(profileUrl, {
+     // const profileUrl = `https://middlewareprofile.onrender.com?id=${id}`;
+      const qrCodePath = await generateQRCode(id, {
         primaryColor: data.primaryColor || '#000000',
         secondaryColor: data.secondaryColor || '#FFFFFF',
         shape: data.shape || 'circle'
