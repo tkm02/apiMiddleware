@@ -12,7 +12,7 @@ fastify.setErrorHandler(errorHandler);
 fastify.register(require('@fastify/cors'), {
   origin: (origin, cb) => {
     // Autoriser certaines origines spécifiques ou toutes (ici tout est autorisé)
-    const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:5500']; // Ajouter tes domaines autorisés ici
+    const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:5500','https://middlewareprofile.onrender.com']; // Ajouter tes domaines autorisés ici
     if (allowedOrigins.includes(origin) || !origin) {
       cb(null, true); 
     } else {
