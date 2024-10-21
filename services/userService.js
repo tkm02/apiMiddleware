@@ -12,7 +12,7 @@ async function createUser(request, reply) {
     }
 
     const user = new User(data);
-    const profileUrl = `https://userprofile-r0vi.onrender.com?id=${user._id}`;
+    const profileUrl = `https://middlewareprofile.onrender.com?id=${user._id}`;
     const options = data.options || {}; // Récupération des options depuis la requête
     const qrCode = await generateQRCode(profileUrl, options);
     user.qrCodeUrl = qrCode;
@@ -56,7 +56,7 @@ async function updateUser(request, reply) {
     const data = request.body;
 
     if (data.qrCodeUrl) {
-      const profileUrl = `https://userprofile-r0vi.onrender.com?id=${id}`;
+      const profileUrl = `https://middlewareprofile.onrender.com?id=${id}`;
       const qrCodePath = await generateQRCode(profileUrl, {
         primaryColor: data.primaryColor || '#000000',
         secondaryColor: data.secondaryColor || '#FFFFFF',
