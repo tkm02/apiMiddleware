@@ -15,7 +15,9 @@ async function generateQRCode(id, options) {
           light: options.secondaryColor,
         },
       });
-      return canvas.toBuffer();
+      //console.log(canvas.toBuffer());
+      
+      return  {URL :canvas.toDataURL() , Buffer : canvas.toBuffer()};
     } catch (err) {
       console.error(err);
       throw err;

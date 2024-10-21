@@ -113,7 +113,7 @@ async function downloadQRCode(request, reply) {
         shape: user.qrCodeShape || 'circle'
       });
   
-      reply.type(`image/${format}`).send(qrCodeBuffer);
+      reply.type(`image/${format}`).send(qrCodeBuffer.Buffer);
     } catch (err) {
       console.error(err);
       reply.code(500).send({ error: 'Internal Server Error' });

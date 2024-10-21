@@ -15,7 +15,11 @@ async function createUser(request, reply) {
     //const profileUrl = `https://middlewareprofile.onrender.com?id=${user._id}`;
     const options = data.options || {}; // Récupération des options depuis la requête
     const qrCode = await generateQRCode(user._id, options);
-    user.qrCodeUrl = qrCode;
+    //console.log(qrCode);
+    
+    user.qrCodeUrl = qrCode.URL;
+    console.log(user);
+    
 
     await user.save();
     return ({ user });
